@@ -1,0 +1,18 @@
+channels:
+  - https://artifacts.merck.com/artifactory/conda-conda-forge-remote     # use this specific repo to resolve everything
+  - https://artifacts.merck.com/artifactory/conda-bioconda-remote
+  - nodefaults
+
+dependencies:
+  - python=3.7 #used for virtual environment, testing with pylint
+  - boto3=1.9.203
+  - requests=2.22.0
+  - pytest
+  - pytest-cov
+  - pytest-mock
+  - pylint
+  - mypy
+  - lxml=4.7.1
+  - pip                                 # latest compatible version
+  - pip:
+    - --index-url https://artifacts.merck.com/artifactory/api/pypi/pypi-main-dev/simple   # this is a trick to make everything work without a proxy and through artifactory with internal merck-only python packages available as well, all pip packages will be downloaded like that
